@@ -69,10 +69,38 @@
 
 
 
+
+
 (defface doom-dashboard-quote '((t (:family "CMU Serif" :height 200 :width expanded :slant italic) ))
   "Face used for the quote"
 )
 (defvar doom-dashboard-quote 'doom-dashboard-quote)
+
+(defface doom-dashboard-banner-tex '((t ( :family "Fira Code" :height 1000 ) ))
+  "Face used for the banner"
+)
+(defvar doom-dashboard-banner-tex 'doom-dashboard-quote-tex)
+
+;; TODO change this out for actual rendered latex that responds to theme changes and all
+
+;; (defun doom-dashboard-draw-ascii-banner-fn ()
+;; (insert
+;;   (propertize
+;;    (+doom-dashboard--center 12
+;;     ;; "\n"
+;;     ""
+;;     ;; "ψ"
+;;      )
+;;     'face 'doom-dashboard-banner-tex
+;;     )
+;;   "\n\n"
+;;    )
+;; )
+
+;; (setq fancy-splash-image "~/.doom.d/purplePsi.png")
+(setq fancy-splash-image "~/.doom.d/psi5.png")
+
+
 
 ;; Removes menu items
 ;; (defvar +doom-dashboard-menu-custom (car-safe +doom-dashboard-menu-sections))
@@ -116,12 +144,10 @@
     ;; ("Play In Rainbows on Spotify"
     ;;  :icon (all-the-icons-faicon "music" :face 'doom-dashboard-menu-title)
     ;;  :action (counsel-spotify-play-string "Radiohead - In Rainbows"))
-  )
+    ;; #("Radiohead - In Rainbows" 0 23
+    ;;   (spotify-object #s(counsel-spotify-album "In Rainbows" "spotify:album:5vkqYmiPBYLaalcmjujWxK" "Radiohead")))
+ )
 )
-
-;; #("Radiohead - In Rainbows" 0 23
-;;   (spotify-object #s(counsel-spotify-album "In Rainbows" "spotify:album:5vkqYmiPBYLaalcmjujWxK" "Radiohead")))
-
 
 (defun doom-dashboard-widget-quote ()
   (insert "\n\n"
