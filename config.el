@@ -253,6 +253,13 @@
                 :empty-lines 1
                 :created t
         )
+        ("ea" "After Exam Todo" entry
+                (file+headline "~/org/PostExamTodo.org" "Post-CIEs")
+                "*** TODO %? %(org-set-tags \"PostExam\") \n %i %a"
+                :prepend t
+                :empty-lines 1
+                :created t
+        )
   ))
 
   (setq org-roam-directory (file-truename "~/org/roam"))
@@ -290,6 +297,12 @@
         ("f" "A levels Further Note" plain
               "%?"
               :if-new (file+head "alevels/furth/${slug}.org"
+                              "#+title: ${title}\n")
+              ;; :immediate-finish
+              :unnarrowed t)
+        ("u" "Uni Application Notes" plain
+              "%?"
+              :if-new (file+head "misc/uniApps/${slug}.org"
                               "#+title: ${title}\n")
               ;; :immediate-finish
               :unnarrowed t)
