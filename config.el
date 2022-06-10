@@ -36,6 +36,9 @@
 ;; Get keys from the Spotify Dev Console
 
 
+(use-package! lsp-tailwindcss
+  :init
+  (setq lsp-tailwindcss-major-modes '(rjsx-mode web-mode html-mode css-mode scss-mode svelte-mode typescript-mode)))
 
 ;; :q should kill the current buffer rather than quitting emacs entirely
 (evil-ex-define-cmd "q" 'kill-this-buffer)
@@ -282,27 +285,36 @@
 
     ; capture templates for A levels notes for now
     (setq org-roam-capture-templates
-      '(("c" "A levels Chem Note" plain
+      '(
+        ("s" "Studies")
+        ("sc" "A levels Chem Note" plain
          "%?"
          :if-new (file+head "alevels/chem/${slug}.org"
                             "#+title: ${title}\n")
          ;; :immediate-finish t
          :unnarrowed t)
-        ("p" "A levels Phys Note" plain
+        ("sp" "A levels Phys Note" plain
               "%?"
               :if-new (file+head "alevels/phys/${slug}.org"
                               "#+title: ${title}\n")
               ;; :immediate-finish
               :unnarrowed t)
-        ("f" "A levels Further Note" plain
+        ("sf" "A levels Further Note" plain
               "%?"
               :if-new (file+head "alevels/furth/${slug}.org"
                               "#+title: ${title}\n")
               ;; :immediate-finish
               :unnarrowed t)
-        ("u" "Uni Application Notes" plain
+        ("su" "Uni Application Notes" plain
               "%?"
               :if-new (file+head "misc/uniApps/${slug}.org"
+                              "#+title: ${title}\n")
+              ;; :immediate-finish
+              :unnarrowed t)
+
+        ("p" "Programming" plain
+              "%?"
+              :if-new (file+head "prog/${slug}.org"
                               "#+title: ${title}\n")
               ;; :immediate-finish
               :unnarrowed t)
@@ -483,3 +495,5 @@
   ;; Drag-and-drop to `dired`
   (add-hook 'dired-mode-hook 'org-download-enable)
 )
+
+
